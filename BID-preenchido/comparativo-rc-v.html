@@ -597,15 +597,7 @@ h3 .tag{white-space:nowrap}
 .pnt.dark .chip.est{color:#E6D3F0;border-color:rgba(230,211,240,.5);background:rgba(142,90,168,.25)}
 .estbar{display:flex;align-items:center;gap:14px;flex-wrap:wrap;min-width:0}
 .perbar .estbar .modes{flex:0 0 auto;width:auto}
-.estfld{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--steel)}
-.estfld input,.estin input{font-family:var(--mono);font-size:12.5px;color:var(--navy);border:1px solid var(--line);border-radius:2px;padding:5px 8px;background:#F6F8FB;font-variant-numeric:tabular-nums}
-.estfld input{width:96px}
-.estin input{width:130px;text-align:right;border-color:#C9AED8;background:#FBF8FD}
-.estfld input:focus,.estin input:focus{outline:2px solid var(--accent);outline-offset:1px;background:#fff}
 .estres{font-size:12px;color:var(--steel)}
-.lnk{background:none;border:0;padding:0;font:inherit;font-size:12px;color:var(--accent-d);text-decoration:underline;cursor:pointer}
-.mtab .lnk{font-size:11px}
-.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 .mtab tr.estrow td{background:#FCFAFE}
 .mtab tr.estrow.melhor td{background:#FCF1F3}
 .concl-top{display:grid;grid-template-columns:1.25fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
@@ -654,9 +646,6 @@ h3 .tag{white-space:nowrap}
         <button type="button" data-e="on" aria-pressed="true">Mostrar</button>
         <button type="button" data-e="off" aria-pressed="false">Ocultar</button>
       </div>
-      <label class="estfld" for="estBase">Viagens por ano
-        <input type="number" id="estBase" min="1" step="1" value="25344"></label>
-      <button type="button" class="lnk" id="estReset">Restaurar valores originais</button>
       <span class="estres" id="estResumo"></span>
     </div>
   </div>
@@ -686,7 +675,7 @@ h3 .tag{white-space:nowrap}
       <div class="pnt-leg">
         <span><i style="background:#E4536C"></i>Menor prêmio</span>
         <span><i style="background:#98A6BC"></i>Valor da proposta</span>
-        <span><i style="background:#98A6BC;background-image:repeating-linear-gradient(135deg,rgba(255,255,255,.45) 0 3px,transparent 3px 6px)"></i><b id="legEst" style="font-weight:inherit">Estimado com 25.344 viagens por ano</b></span>
+        <span><i style="background:#98A6BC;background-image:repeating-linear-gradient(135deg,rgba(255,255,255,.45) 0 3px,transparent 3px 6px)"></i>Estimado com 25.344 viagens por ano</span>
       </div>
       <p class="pnt-note" id="rkNota"></p>
     </div>
@@ -898,21 +887,18 @@ function bindTip(node,html){
 }
 
 let V=12;
-/* estimativas: base de viagens editável, valores anuais que o avaliador pode sobrescrever e a opção de ocultar */
-const EST={show:true,base:VIAGENS,over:{}};
+/* estimativas: o avaliador decide se entram ou não na comparação */
+const EST={show:true};
 try{const s=localStorage.getItem('bidrcv-vig');if(s==='24')V=24}catch(e){}
-try{const s=JSON.parse(localStorage.getItem('bidrcv-est')||'null');if(s){EST.show=s.show!==false;EST.base=+s.base||VIAGENS;EST.over=s.over||{}}}catch(e){}
-const salvaEst=()=>{try{localStorage.setItem('bidrcv-est',JSON.stringify(EST))}catch(e){}};
+try{if(localStorage.getItem('bidrcv-est-show')==='0')EST.show=false}catch(e){}
+const salvaEst=()=>{try{localStorage.setItem('bidrcv-est-show',EST.show?'1':'0')}catch(e){}};
 const nfi=n=>new Intl.NumberFormat('pt-BR').format(n);
 
 function valorViagem(q){return V===12?q.v12:q.v24}
-function editado(q){const o=EST.over[q.id];return o&&o[V]!=null}
-/* prêmio por ano: valor da proposta, ou estimativa (viagens × preço) ou o valor digitado */
+/* prêmio por ano: valor da proposta, ou estimativa (preço por viagem × viagens das outras propostas) */
 function premio(q){
   const vv=valorViagem(q); if(vv==null)return null;
-  if(!q.est)return V===12?q.p12:q.p24;
-  if(editado(q))return EST.over[q.id][V];
-  return vv*EST.base;
+  return q.est?vv*VIAGENS:(V===12?q.p12:q.p24);
 }
 const visivel=q=>!(q.est&&!EST.show);
 const ESTCHIP='<span class="chip est">estimado</span>';
@@ -920,16 +906,14 @@ const ESTCHIP='<span class="chip est">estimado</span>';
 function render(){
   document.querySelectorAll('#barVig button').forEach(b=>b.setAttribute('aria-pressed',String(+b.dataset.v===V)));
   document.querySelectorAll('#barEst button').forEach(b=>b.setAttribute('aria-pressed',String((b.dataset.e==='on')===EST.show)));
-  const inp=g('estBase'); if(document.activeElement!==inp)inp.value=EST.base;
   g('estResumo').textContent=EST.show
     ? `${Q.filter(q=>q.est).length} cotações estimadas: Akad, AIG e Essor averbável`
     : 'Estimativas ocultas: o ranking mostra só valores fechados nas propostas';
-  g('legEst').textContent='Estimado com '+nfi(EST.base)+' viagens por ano';
-
+  
   const com=Q.filter(q=>visivel(q)&&premio(q)!=null).sort((a,b)=>premio(a)-premio(b));
   const sem=Q.filter(q=>visivel(q)&&premio(q)==null);
   const ocultas=Q.filter(q=>!visivel(q));
-  const best=com[0], max=Math.max(...Q.filter(visivel).map(q=>premio(q)||0),...Q.filter(visivel).map(q=>q.est?(q.v12*EST.base):q.p12));
+  const best=com[0], max=Math.max(...Q.filter(visivel).map(q=>premio(q)||0),...Q.filter(visivel).map(q=>q.est?q.v12*VIAGENS:q.p12));
   g('kBig').innerHTML=mil(premio(best))+'<span>mil</span>';
   g('kCap').textContent='Menor prêmio por ano · '+nome(best)+' via '+best.cor+(best.est?' · estimado':'');
   g('rkTit').textContent=V===12?'Prêmio por ano · 12 meses':'Prêmio por ano · 24 meses';
@@ -943,8 +927,7 @@ function render(){
       <div class="tr"><s class="${q.est?'est':''}" style="left:0;width:${w}%;background-color:${i===0?'#E4536C':'#98A6BC'}"></s></div>
       <div class="vl">${mil(p)} mil</div>`;
     const como=!q.est?'Valor da proposta'
-      : editado(q)?'Estimado: valor digitado pelo avaliador'
-      : `Estimado: ${brl(valorViagem(q))} por viagem × ${nfi(EST.base)} viagens`;
+      : `Estimado: ${brl(valorViagem(q))} por viagem × ${nfi(VIAGENS)} viagens`;
     bindTip(r,`<b>${nome(q)} · ${brl(p)} por ano</b>${brl(valorViagem(q))} por viagem<br><span>${como}</span>`);
     rk.appendChild(r);
   });
@@ -992,12 +975,7 @@ function renderPremio(){
     if(p==null){cel='<small>sem opção de 24 meses</small>';tot='—'}
     else if(!q.est){cel=brl(p);tot=brl(p*V/12)}
     else if(!EST.show){cel='<small>estimativa oculta</small>';tot='—'}
-    else{
-      cel=`<label class="estin"><span class="vh">Prêmio por ano estimado da ${nome(q)}</span>
-        <input type="number" id="ov-${q.id}-${V}" data-q="${q.id}" min="0" step="0.01" value="${Math.round(p*100)/100}"></label>
-        <small>${editado(q)?'valor digitado · <button type="button" class="lnk" data-reset="'+q.id+'">voltar ao cálculo</button>':nfi(EST.base)+' viagens × '+brl(vv)}</small>`;
-      tot=brl(p*V/12);
-    }
+    else{cel=brl(p)+`<small>${nfi(VIAGENS)} viagens × ${brl(vv)}</small>`;tot=brl(p*V/12)}
     h+=`<tr class="${q===best?'melhor':''}${q.est?' estrow':''}"><td class="seg">${nome(q)}${q.est?' '+ESTCHIP:''}<small>${q.cor}${q.atual?' · atual':''}</small></td>
       <td>${q.mod}</td>
       <td class="n">${vv!=null?brl(vv):'—'}</td>
@@ -1006,14 +984,7 @@ function renderPremio(){
       <td>${q.min}</td><td>${q.parc}</td><td>${q.base}</td></tr>`;
   });
   t.innerHTML=h+'</tbody>';
-  t.querySelectorAll('input[data-q]').forEach(i=>i.addEventListener('change',()=>{
-    const v=parseFloat(i.value); if(!(v>=0))return;
-    (EST.over[i.dataset.q]=EST.over[i.dataset.q]||{})[V]=v; salvaEst(); render();
-  }));
-  t.querySelectorAll('button[data-reset]').forEach(b=>b.addEventListener('click',()=>{
-    const o=EST.over[b.dataset.reset]; if(o)delete o[V]; salvaEst(); render();
-  }));
-  g('prNota').innerHTML=`Prêmios líquidos. Some <strong>7,38%</strong> de Imposto sobre Operações Financeiras a todos. As linhas marcadas <span class="chip est">estimado</span> não têm valor anual na proposta: o valor sai da base de viagens da barra do topo, ou do número digitado na coluna "Prêmio por ano". Na averbável a cobrança real é mensal, pelas viagens averbadas, respeitando o prêmio mínimo.`;
+  g('prNota').innerHTML=`Prêmios líquidos. Some <strong>7,38%</strong> de Imposto sobre Operações Financeiras a todos. As linhas marcadas <span class="chip est">estimado</span> não têm valor anual na proposta: o valor por ano é o preço por viagem multiplicado pelas 25.344 viagens usadas por Gallagher e Alper. Use "Ocultar" na barra do topo para tirá-las da comparação. Na averbável a cobrança real é mensal, pelas viagens averbadas, respeitando o prêmio mínimo.`;
 }
 
 function renderCob(){
@@ -1079,10 +1050,6 @@ document.querySelectorAll('#barVig button').forEach(b=>b.addEventListener('click
 document.querySelectorAll('#barEst button').forEach(b=>b.addEventListener('click',()=>{
   EST.show=b.dataset.e==='on'; salvaEst(); render();
 }));
-g('estBase').addEventListener('change',e=>{
-  const v=Math.round(+e.target.value); if(v>0){EST.base=v; salvaEst(); render()} else e.target.value=EST.base;
-});
-g('estReset').addEventListener('click',()=>{EST.base=VIAGENS;EST.over={};EST.show=true;salvaEst();render()});
 const st=g('stickytop');
 const setH=()=>document.documentElement.style.setProperty('--stickyh',st.offsetHeight+'px');
 addEventListener('scroll',()=>st.classList.toggle('scrolled',scrollY>8),{passive:true});

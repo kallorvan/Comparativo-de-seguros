@@ -586,7 +586,7 @@ h3 .tag{white-space:nowrap}
 .cov .chip{display:inline-block;margin-bottom:4px}
 .cov td small{font-size:11px}
 #tbPremio{min-width:980px}
-#tbCob{min-width:1020px}
+#tbCob{min-width:1140px}
 .unit .sts{display:inline-block;margin-bottom:10px}
 .unit ul{margin:0 0 14px;padding:0;list-style:none;font-size:12.5px;color:var(--ink);display:grid;gap:4px}
 .unit ul li b{font-family:var(--mono);font-size:11.5px;color:var(--navy);font-weight:500;float:right}
@@ -743,7 +743,7 @@ h3 .tag{white-space:nowrap}
 
     <div class="concl-top">
       <div class="concl-main">
-        <div class="eyebrow">Recomendada</div>
+        <div class="eyebrow">Recomendada, com condição</div>
         <h3>AXA, via Gallagher</h3>
         <p>Tem o menor preço por viagem em qualquer vigência, R$ 2,50 em 12 meses e R$ 2,15 em 24 meses, e continua a mais barata qualquer que seja a base de viagens. Limites de R$ 250.000,00 e R$ 350.000,00, acima do mínimo legal, sem franquia e com R$ 30.000,00 de contenção e salvamento.</p>
         <div class="concl-nums">
@@ -751,15 +751,15 @@ h3 .tag{white-space:nowrap}
           <div><b>R$ 54.490</b><u>por ano em 24 meses</u></div>
           <div><b>R$ 2,15</b><u>menor preço por viagem do BID</u></div>
         </div>
-        <p class="concl-cav">Não cobre Danos Morais nem custos de defesa. Antes de fechar, confirmar com a Gallagher a base de viagens e se há prêmio mínimo.</p>
+        <p class="concl-cav"><strong style="color:#fff">Só fechar se a AXA trocar o cancelamento automático por reintegração do limite.</strong> Do jeito que está, um sinistro grande encerra a apólice. Também não cobre Danos Morais nem custos de defesa, o preço pode ser revisto a cada 2 meses se a sinistralidade passar de 50%, e falta confirmar a base de viagens e o prêmio mínimo.</p>
       </div>
       <div class="concl-side">
         <div class="unit">
           <div class="nm">Alternativa</div>
           <b>Essor</b>
           <div class="sh">via Alper · ajustável · R$ 3,00 por viagem</div>
-          <p>A cobertura mais completa para a frota própria: cobre o retorno vazio, custos de defesa de R$ 10.000,00 e acidentes pessoais do motorista sem custo. Custa 20% a mais por viagem que a AXA, e o prêmio mínimo é de 100% do valor inicial, R$ 76.032,00, mesmo que haja menos viagens.</p>
-          <div class="res">Vale se o retorno vazio da frota própria for prioridade</div>
+          <p>Não tem cláusula de cancelamento por sinistro nas coberturas básicas nem revisão de preço durante a vigência. É a cobertura mais completa para a frota própria: cobre o retorno vazio, custos de defesa de R$ 10.000,00 e acidentes pessoais do motorista sem custo. Custa 20% a mais por viagem que a AXA, e o prêmio mínimo é de 100% do valor inicial, R$ 76.032,00, mesmo que haja menos viagens.</p>
+          <div class="res">Primeira opção se a AXA não aceitar a reintegração, desde que a Alper confirme os valores para 2026/2027</div>
         </div>
         <div class="unit">
           <div class="nm">Não recomendadas</div>
@@ -786,7 +786,9 @@ h3 .tag{white-space:nowrap}
       <div class="tblbox"><table class="mtab" id="tbPassos">
         <thead><tr><th>Até</th><th>O quê</th><th>Com quem</th></tr></thead>
         <tbody>
-          <tr class="urg"><td class="n">imediato</td><td>Garantir que não haja intervalo: a apólice atual vence em 20/10/2026 e a proposta da AON começa em 30/10/2026. Pedir prorrogação da atual ou início da nova em 20/10/2026</td><td>AON e corretora escolhida</td></tr>
+          <tr class="urg"><td class="n">imediato</td><td>Garantir que não haja intervalo: a apólice atual vence em 20/10/2026, a proposta da AON começa em 30/10/2026 e as seguradoras têm até 25 dias para aceitar. Pedir por escrito a prorrogação da atual até a nova estar emitida</td><td>AON e corretora escolhida</td></tr>
+          <tr class="urg"><td class="n">imediato</td><td>Pedir que a AXA troque o cancelamento automático por reintegração automática do limite</td><td>Gallagher</td></tr>
+          <tr><td class="n">imediato</td><td>Confirmar por escrito que as propostas da Essor valem para 2026/2027</td><td>Alper</td></tr>
           <tr><td class="n">imediato</td><td>Confirmar a base de viagens da AXA (25.344 ou 37.131) e se existe prêmio mínimo</td><td>Gallagher</td></tr>
           <tr><td class="n">imediato</td><td>Confirmar se a renovação da Akad mantém custos de defesa e por que passa a excluir veículo vazio</td><td>AON</td></tr>
           <tr><td class="n">imediato</td><td>Pedir as propostas completas da Fairfax e da Sura</td><td>Gallagher</td></tr>
@@ -845,17 +847,17 @@ const OK=t=>`<span class="chip ok">coberto</span>${t?`<small>${t}</small>`:''}`;
 const NAO=t=>`<span class="chip furo">não cobre</span>${t?`<small>${t}</small>`:''}`;
 const NI=t=>`<span class="chip ruido">não informado</span>${t?`<small>${t}</small>`:''}`;
 const COB=[
-  {seg:'AXA',cor:'Gallagher',morais:NAO(),cont:OK('R$ 30.000,00, sem franquia'),def:NAO(),ap:NAO(),
-   vazio:OK('Da ordem de coleta até a coleta'),fr:'Isenta',rev:'Acima de 12 meses; reanálise a cada 2 meses se a sinistralidade passar de 50%'},
+  {seg:'AXA',cor:'Gallagher',rein:NAO('Cancela ao atingir o limite'),morais:NAO(),cont:OK('R$ 30.000,00, sem franquia'),def:NAO(),ap:NAO(),
+   vazio:OK('Da ordem de coleta até a coleta'),fr:'Isenta',rev:'Reanálise a cada 2 meses se a sinistralidade passar de 50%; revisão acima de 12 meses'},
   {seg:'Fairfax',cor:'Gallagher',morais:NAO(),cont:OK('R$ 30.000,00'),def:NI(),ap:NI(),vazio:NI(),fr:'Isenta',rev:'Acima de 12 meses'},
   {seg:'Sura',cor:'Gallagher',morais:NAO(),cont:OK('R$ 30.000,00'),def:NI(),ap:NI(),vazio:NI(),fr:'Isenta',rev:'Não se aplica (só 12 meses)'},
   {seg:'Akad',sub:'apólice atual',cor:'AON',ref:true,morais:OK('R$ 28.000,00'),cont:OK('Dentro do limite de cada cobertura'),def:OK('10% dos pedidos, até R$ 28.000,00'),ap:NAO(),
-   vazio:OK('Veículo "carregado ou não" (cláusula 6.1.1)'),fr:'Isenta, sem Participação Obrigatória do Segurado',rev:'Reintegração automática do limite, sem custo'},
+   vazio:OK('Veículo "carregado ou não" (cláusula 6.1.1)'),fr:'Isenta, sem Participação Obrigatória do Segurado',rein:OK('Automática, sem custo'),rev:'Não se aplica'},
   {seg:'Akad',sub:'renovação',cor:'AON',morais:OK('R$ 28.000,00'),cont:NAO('Não possui'),def:NAO('Não possui'),ap:NAO(),
    vazio:NAO('Excluído, inclusive retorno após a entrega'),fr:'Isenta, sem Participação Obrigatória do Segurado',rev:'Não informada'},
   {seg:'AIG',cor:'AON',morais:OK('R$ 30.000,00'),cont:OK('R$ 15.000,00'),def:OK('R$ 5.000,00 por evento'),ap:NAO(),
    vazio:OK('Só na coleta anterior à viagem'),fr:'10% sobre Danos Morais',rev:'24 meses: revisão se a sinistralidade passar de 60% no primeiro ano'},
-  {seg:'Essor',cor:'Alper',morais:NAO(),cont:OK('R$ 10.000,00'),def:OK('R$ 10.000,00, sem custo'),ap:OK('Morte e funeral do motorista: R$ 10.000,00, sem custo'),
+  {seg:'Essor',cor:'Alper',rein:NI('Adicionais cancelam ao esgotar os R$ 10.000,00'),morais:NAO(),cont:OK('R$ 10.000,00'),def:OK('R$ 10.000,00, sem custo'),ap:OK('Morte e funeral do motorista: R$ 10.000,00, sem custo'),
    vazio:OK('Até a coleta; frota própria também no retorno vazio'),fr:'Não se aplica',rev:'Ajustável: acerto final pelas viagens reais'},
 ];
 
@@ -863,6 +865,18 @@ const CX=[
   {chip:'furo',ct:'prazo',qt:'20/10',h:'A apólice atual vence antes da nova',
    p:'A apólice da Akad vai de 20/10/2025 a 20/10/2026. A proposta de renovação da AON prevê início em 30/10/2026.',
    why:'Do jeito que está, seriam <strong>10 dias sem RC-V</strong>, um seguro obrigatório. A nova apólice, seja qual for a seguradora, precisa começar em 20/10/2026, ou a atual precisa ser prorrogada até o início da nova.'},
+  {chip:'furo',ct:'cancelamento',qt:'AXA',h:'A AXA se cancela depois de um sinistro grande',
+   p:'A proposta da AXA diz que o seguro será <strong>"automaticamente cancelado, se o montante indenizado atingir"</strong> o limite de R$ 250.000,00 em Danos Materiais ou R$ 350.000,00 em Danos Corporais.',
+   why:'Um único acidente sério deixaria a Tóliman sem RC-V no meio da vigência. A apólice atual da Akad faz o contrário: o limite é recomposto automaticamente, sem custo. Pedir à Gallagher que a AXA troque essa cláusula por reintegração automática.'},
+  {chip:'furo',ct:'sem cobertura firme',qt:'25 dias',h:'Propostas da AON são indicativas',
+   p:'A AON chama o documento de "cotação indicativa" e avisa que não há cobertura definitiva até a apólice ser emitida. Akad e AIG têm até 25 dias para aceitar ou recusar.',
+   why:'Somado ao vencimento da apólice atual em 20/10/2026, o risco de ficar descoberto é real, qualquer que seja a seguradora escolhida. A saída segura é pedir por escrito a prorrogação da apólice atual até a nova estar emitida.'},
+  {chip:'ruido',ct:'confirmar',qt:'2025',h:'Propostas da Alper com data do ano passado',
+   p:'Todas as páginas das duas propostas da Essor trazem a marca "Generated: 2025-09-05", embora os arquivos tenham sido gerados em setembro e outubro de 2026.',
+   why:'Pode ser só um carimbo do sistema da Albatroz. Antes de comparar, pedir à Alper confirmação por escrito de que R$ 3,00 e R$ 4,00 por viagem valem para 2026/2027.'},
+  {chip:'ruido',ct:'preço variável',qt:'50%',h:'O preço da AXA pode ser revisto a cada 2 meses',
+   p:'Se a sinistralidade passar de 50% do prêmio, as condições da AXA "serão revistas" e passam a valer no período seguinte.',
+   why:'O R$ 2,50 por viagem não fica travado o ano todo. Na AIG o gatilho é 60%, e só no contrato de 24 meses. As propostas da Akad e da Essor não trazem essa cláusula.'},
   {chip:'furo',ct:'renovação',qt:'−31%',h:'Renovação da Akad: preço cai, cobertura encolhe',
    p:'Hoje a Tóliman paga R$ 8,00 por embarque. A renovação baixa para R$ 5,50 em 12 meses e R$ 5,00 em 24 meses, com os mesmos limites de 160, 280 e 28 mil.',
    why:'Em troca, a renovação <strong>exclui o veículo vazio</strong>, que a apólice atual cobre ("carregado ou não"), e o quadro da AON indica que <strong>não há custos de defesa</strong>, que hoje vão até R$ 28.000,00. Confirmar com a AON antes de comparar só pelo preço.'},
@@ -1033,12 +1047,12 @@ function renderPremio(){
 
 function renderCob(){
   const lim={AXA:[250,350],Fairfax:[250,350],Sura:[250,350],Akad:[160,280],AIG:[160,280],Essor:[200,350]};
-  let h=`<thead><tr><th>Seguradora</th><th>Danos Materiais</th><th>Danos Corporais</th><th>Danos Morais</th><th>Contenção e salvamento</th><th>Custos de defesa</th><th>Acidentes pessoais</th><th>Veículo vazio</th><th>Franquia</th><th>Cláusula de revisão</th></tr></thead><tbody>`;
+  let h=`<thead><tr><th>Seguradora</th><th>Danos Materiais</th><th>Danos Corporais</th><th>Danos Morais</th><th>Contenção e salvamento</th><th>Custos de defesa</th><th>Acidentes pessoais</th><th>Veículo vazio</th><th>Reintegração do limite</th><th>Franquia</th><th>Cláusula de revisão</th></tr></thead><tbody>`;
   COB.forEach(c=>{
     const [dm,dc]=lim[c.seg];
     h+=`<tr class="${c.ref?'atualrow':''}"><td class="seg">${c.seg}${c.sub?' '+c.sub:''}<small>${c.cor}${c.ref?' · em vigência':''}</small></td>
       <td class="n">R$ ${dm}.000,00</td><td class="n">R$ ${dc}.000,00</td>
-      <td>${c.morais}</td><td>${c.cont}</td><td>${c.def}</td><td>${c.ap}</td><td>${c.vazio}</td>
+      <td>${c.morais}</td><td>${c.cont}</td><td>${c.def}</td><td>${c.ap}</td><td>${c.vazio}</td><td>${c.rein||NI()}</td>
       <td><small>${c.fr}</small></td><td><small>${c.rev}</small></td></tr>`;
   });
   g('tbCob').innerHTML=h+'</tbody>';

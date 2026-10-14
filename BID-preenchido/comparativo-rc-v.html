@@ -593,6 +593,13 @@ h3 .tag{white-space:nowrap}
 .unit.semprop{background:#FAFBFD}
 .unit.semprop b.qt{color:var(--steel-l)}
 .foot .rel{max-width:none}
+.pnt.dark .row.atual{background:rgba(255,211,77,.07);padding-left:12px;padding-right:12px;margin:0 -12px;border-top:1px dashed rgba(255,211,77,.45);border-bottom:1px dashed rgba(255,211,77,.45)}
+.pnt.dark .row.atual .tr s{background-color:transparent;box-shadow:inset 0 0 0 1.5px #FFD34D}
+.pnt.dark .row.atual .vl{color:#FFD34D}
+.mtab tr.atualrow td{background:#FFFBEA;border-bottom:1px dashed #E8C95A}
+.mtab tr.atualrow td.seg{color:#7A5B00}
+.mtab tr.urg td{background:#FCF1F3}
+.mtab tr.urg td:first-child{color:var(--accent-d);font-weight:600}
 .chip.est{color:#8E5AA8;border-color:#C9AED8;background:#F7F1FA;font-size:8.5px;padding:2px 5px;vertical-align:1px}
 .pnt.dark .chip.est{color:#E6D3F0;border-color:rgba(230,211,240,.5);background:rgba(142,90,168,.25)}
 .estbar{display:flex;align-items:center;gap:14px;flex-wrap:wrap;min-width:0}
@@ -655,15 +662,15 @@ h3 .tag{white-space:nowrap}
 <div class="hero">
   <div class="wrap hero-grid">
     <div class="h-id">
-      <div class="eyebrow">Tóliman Transportes · renovação em 30/10/2026</div>
+      <div class="eyebrow">Tóliman Transportes · apólice atual vence em 20/10/2026</div>
       <h1>Comparativo<em>de seguros RC-V</em></h1>
-      <p class="sub">Responsabilidade Civil do transportador rodoviário de carga. Sete cotações de cinco seguradoras, trazidas por três corretoras.</p>
+      <p class="sub">Responsabilidade Civil do transportador rodoviário de carga. Sete cotações de cinco seguradoras, trazidas por três corretoras, comparadas com a apólice atual da Akad.</p>
       <div class="bignum" id="kBig">0</div>
       <div class="bigcap" id="kCap">Menor prêmio por ano</div>
       <div class="split">
         <div><span>7</span><small>cotações</small></div>
         <div><span>3</span><small>corretoras com proposta</small></div>
-        <div><span>2</span><small>sem proposta</small></div>
+        <div><span>R$ 8,00</span><small>por embarque na apólice atual</small></div>
       </div>
     </div>
     <div class="h-sem">
@@ -675,6 +682,7 @@ h3 .tag{white-space:nowrap}
       <div class="pnt-leg">
         <span><i style="background:#E4536C"></i>Menor prêmio</span>
         <span><i style="background:#98A6BC"></i>Valor da proposta</span>
+        <span><i style="background:transparent;box-shadow:inset 0 0 0 1.5px #FFD34D"></i>Apólice atual</span>
         <span><i style="background:#98A6BC;background-image:repeating-linear-gradient(135deg,rgba(255,255,255,.45) 0 3px,transparent 3px 6px)"></i>Estimado com 25.344 viagens por ano</span>
       </div>
       <p class="pnt-note" id="rkNota"></p>
@@ -757,7 +765,7 @@ h3 .tag{white-space:nowrap}
           <div class="nm">Não recomendadas</div>
           <b>Akad e Sura</b>
           <div class="sh">AON e Gallagher</div>
-          <p>A Akad, seguradora atual, é a segunda mais cara, com limites no mínimo legal e sem cobertura para veículo vazio. A Sura custa mais de quatro vezes a AXA. A AIG fica no meio: preço intermediário, com Danos Morais, mas limites mínimos e franquia de 10%.</p>
+          <p>A renovação da Akad baixa o preço atual de R$ 8,00 para R$ 5,50 por embarque, mas segue a segunda mais cara, com limites no mínimo legal, e tira coberturas que a apólice atual tem: veículo vazio e custos de defesa. A Sura custa mais de quatro vezes a AXA. A AIG fica no meio: preço intermediário, com Danos Morais, mas limites mínimos e franquia de 10%.</p>
           <div class="res">Akad só se a continuidade com a atual pesar mais que o preço</div>
         </div>
       </div>
@@ -774,16 +782,18 @@ h3 .tag{white-space:nowrap}
 
     <div class="card" style="margin-top:18px">
       <h3>Próximos passos</h3>
-      <p class="hint">Em ordem de prazo. A vigência começa em 30/10/2026.</p>
+      <p class="hint">Em ordem de prazo. A apólice atual vence em 20/10/2026.</p>
       <div class="tblbox"><table class="mtab" id="tbPassos">
         <thead><tr><th>Até</th><th>O quê</th><th>Com quem</th></tr></thead>
         <tbody>
+          <tr class="urg"><td class="n">imediato</td><td>Garantir que não haja intervalo: a apólice atual vence em 20/10/2026 e a proposta da AON começa em 30/10/2026. Pedir prorrogação da atual ou início da nova em 20/10/2026</td><td>AON e corretora escolhida</td></tr>
           <tr><td class="n">imediato</td><td>Confirmar a base de viagens da AXA (25.344 ou 37.131) e se existe prêmio mínimo</td><td>Gallagher</td></tr>
+          <tr><td class="n">imediato</td><td>Confirmar se a renovação da Akad mantém custos de defesa e por que passa a excluir veículo vazio</td><td>AON</td></tr>
           <tr><td class="n">imediato</td><td>Pedir as propostas completas da Fairfax e da Sura</td><td>Gallagher</td></tr>
           <tr><td class="n">imediato</td><td>Definir qual documento conta como viagem para a cobrança (MDF-e, CT-e, ida e volta)</td><td>Todas</td></tr>
+          <tr><td class="n">17/10/2026</td><td>Proposta da seguradora escolhida assinada e enviada, 72 horas antes de 20/10/2026</td><td>Corretora escolhida</td></tr>
+          <tr><td class="n">20/10/2026</td><td>Fim da apólice atual e início da nova, sem intervalo; cadastro dos responsáveis no sistema de averbação</td><td>Seguradora escolhida</td></tr>
           <tr><td class="n">25/10/2026</td><td>Fim da validade da proposta da AON, caso a Akad ou a AIG continuem na disputa</td><td>AON</td></tr>
-          <tr><td class="n">27/10/2026</td><td>Proposta da seguradora escolhida assinada e enviada, 72 horas antes do início</td><td>Corretora escolhida</td></tr>
-          <tr><td class="n">30/10/2026</td><td>Início da vigência e cadastro dos responsáveis no sistema de averbação</td><td>Seguradora escolhida</td></tr>
         </tbody>
       </table></div>
     </div>
@@ -796,6 +806,7 @@ h3 .tag{white-space:nowrap}
     <p>Comparativo montado a partir das propostas enviadas pelas corretoras para a renovação do RC-V da Tóliman Transportes. Os prêmios são líquidos; a todos se soma o Imposto sobre Operações Financeiras de 7,38%. Valores marcados como estimados usam as 25.344 viagens por ano que Gallagher e Alper usaram, porque a AON informou só o preço por viagem.
       <span class="src">Propostas de origem</span>
       <span class="rel"><b>Gallagher</b> · Proposta de Seguro RC-V · AXA, Fairfax e Sura · carta da AXA de 08/10/2026</span>
+      <span class="rel"><b>Akad</b> · Apólice em vigência 027982025010659000254 · 20/10/2025 a 20/10/2026 · corretora AON</span>
       <span class="rel"><b>AON</b> · Proposta de Renovação RC-V · Akad e AIG · válida até 25/10/2026</span>
       <span class="rel"><b>Alper</b> · RC-V com frota, ajustável e averbável · Essor via Albatroz</span>
       <span class="rel"><b>Levantamento de averbação 2025/2026</b> · aba Rel. Vol. · 14.888 MDF-e de 16/09/2025 a 15/09/2026</span>
@@ -815,7 +826,7 @@ const Q=[
    min:'Não informado',parc:'12 meses: até 10 vezes · 24 meses: até 20 vezes, sem juros',base:'25.344 por ano',dm:250000,dc:350000},
   {id:'sura',seg:'Sura',cor:'Gallagher',mod:'Ajustável',v12:10.50,v24:null,p12:266112,p24:null,est:false,
    min:'Não informado',parc:'Até 10 vezes sem juros',base:'25.344 por ano',dm:250000,dc:350000},
-  {id:'akad',seg:'Akad',cor:'AON',mod:'Averbável',v12:5.50,v24:5.00,p12:5.50*VIAGENS,p24:5.00*VIAGENS,est:true,atual:true,
+  {id:'akad',seg:'Akad',sub:'renovação',cor:'AON',mod:'Averbável',v12:5.50,v24:5.00,p12:5.50*VIAGENS,p24:5.00*VIAGENS,est:true,atual:true,
    min:'R$ 350,00 por mês',parc:'Fatura mensal',base:'Não informada',dm:160000,dc:280000},
   {id:'aig',seg:'AIG',cor:'AON',mod:'Averbável',v12:4.00,v24:3.50,p12:4.00*VIAGENS,p24:3.50*VIAGENS,est:true,
    min:'R$ 350,00 por mês',parc:'Fatura mensal',base:'Não informada',dm:160000,dc:280000},
@@ -825,6 +836,11 @@ const Q=[
    min:'R$ 300,00 por mês',parc:'Até 10 vezes',base:'Conforme viagens averbadas',dm:200000,dc:350000},
 ];
 
+/* apólice em vigência: referência, não concorre no ranking */
+const ATUAL={seg:'Akad',sub:'apólice atual',cor:'AON',mod:'Averbável',v:8.00,est:true,
+  min:'R$ 350,00 por mês',parc:'Fatura mensal',base:'Embarques averbados',
+  apol:'027982025010659000254',ini:'20/10/2025',fim:'20/10/2026'};
+const premioAtual=()=>ATUAL.v*VIAGENS;
 const OK=t=>`<span class="chip ok">coberto</span>${t?`<small>${t}</small>`:''}`;
 const NAO=t=>`<span class="chip furo">não cobre</span>${t?`<small>${t}</small>`:''}`;
 const NI=t=>`<span class="chip ruido">não informado</span>${t?`<small>${t}</small>`:''}`;
@@ -833,7 +849,9 @@ const COB=[
    vazio:OK('Da ordem de coleta até a coleta'),fr:'Isenta',rev:'Acima de 12 meses; reanálise a cada 2 meses se a sinistralidade passar de 50%'},
   {seg:'Fairfax',cor:'Gallagher',morais:NAO(),cont:OK('R$ 30.000,00'),def:NI(),ap:NI(),vazio:NI(),fr:'Isenta',rev:'Acima de 12 meses'},
   {seg:'Sura',cor:'Gallagher',morais:NAO(),cont:OK('R$ 30.000,00'),def:NI(),ap:NI(),vazio:NI(),fr:'Isenta',rev:'Não se aplica (só 12 meses)'},
-  {seg:'Akad',cor:'AON',morais:OK('R$ 28.000,00'),cont:NAO('Não possui'),def:NAO('Não possui'),ap:NAO(),
+  {seg:'Akad',sub:'apólice atual',cor:'AON',ref:true,morais:OK('R$ 28.000,00'),cont:OK('Dentro do limite de cada cobertura'),def:OK('10% dos pedidos, até R$ 28.000,00'),ap:NAO(),
+   vazio:OK('Veículo "carregado ou não" (cláusula 6.1.1)'),fr:'Isenta, sem Participação Obrigatória do Segurado',rev:'Reintegração automática do limite, sem custo'},
+  {seg:'Akad',sub:'renovação',cor:'AON',morais:OK('R$ 28.000,00'),cont:NAO('Não possui'),def:NAO('Não possui'),ap:NAO(),
    vazio:NAO('Excluído, inclusive retorno após a entrega'),fr:'Isenta, sem Participação Obrigatória do Segurado',rev:'Não informada'},
   {seg:'AIG',cor:'AON',morais:OK('R$ 30.000,00'),cont:OK('R$ 15.000,00'),def:OK('R$ 5.000,00 por evento'),ap:NAO(),
    vazio:OK('Só na coleta anterior à viagem'),fr:'10% sobre Danos Morais',rev:'24 meses: revisão se a sinistralidade passar de 60% no primeiro ano'},
@@ -842,14 +860,20 @@ const COB=[
 ];
 
 const CX=[
+  {chip:'furo',ct:'prazo',qt:'20/10',h:'A apólice atual vence antes da nova',
+   p:'A apólice da Akad vai de 20/10/2025 a 20/10/2026. A proposta de renovação da AON prevê início em 30/10/2026.',
+   why:'Do jeito que está, seriam <strong>10 dias sem RC-V</strong>, um seguro obrigatório. A nova apólice, seja qual for a seguradora, precisa começar em 20/10/2026, ou a atual precisa ser prorrogada até o início da nova.'},
+  {chip:'furo',ct:'renovação',qt:'−31%',h:'Renovação da Akad: preço cai, cobertura encolhe',
+   p:'Hoje a Tóliman paga R$ 8,00 por embarque. A renovação baixa para R$ 5,50 em 12 meses e R$ 5,00 em 24 meses, com os mesmos limites de 160, 280 e 28 mil.',
+   why:'Em troca, a renovação <strong>exclui o veículo vazio</strong>, que a apólice atual cobre ("carregado ou não"), e o quadro da AON indica que <strong>não há custos de defesa</strong>, que hoje vão até R$ 28.000,00. Confirmar com a AON antes de comparar só pelo preço.'},
   {chip:'furo',ct:'confirmar',qt:'37.131',h:'Base de viagens da AXA',
    p:'O quadro da Gallagher calcula a AXA com 25.344 viagens por ano, mas a proposta da própria AXA prevê 37.131 embarques por ano.',
    why:'Na modalidade ajustável o prêmio final segue as viagens reais. Com 37.131 viagens, a AXA de 12 meses iria a <strong>R$ 92.827,50</strong> e a de 24 meses a <strong>R$ 79.831,65 por ano</strong>. Diante da <strong>Essor ajustável</strong> nos R$ 76.032,00 da proposta da Alper, a Essor passaria a ser a mais barata em 12 meses. Com a mesma base de viagens para as duas, a AXA continua à frente: R$ 2,50 por viagem contra R$ 3,00 da Essor.'},
   {chip:'furo',ct:'cobertura',qt:'160 mil',h:'Limites da AON no mínimo legal',
    p:'Akad e AIG cotaram Danos Materiais de R$ 160.000,00 e Danos Corporais de R$ 280.000,00, convertidos com o Direito Especial de Saque a R$ 8,00.',
    why:'As demais cotaram 200 ou 250 mil e 350 mil. Se o Direito Especial de Saque subir, o limite em reais fica abaixo do mínimo exigido até a apólice ser endossada.'},
-  {chip:'furo',ct:'exclusão',qt:'Akad',h:'Veículo vazio sem cobertura',
-   p:'A Akad, seguradora atual, exclui qualquer evento com o veículo circulando vazio, inclusive o retorno depois da entrega, para frota própria, agregados e autônomos.',
+  {chip:'furo',ct:'exclusão',qt:'Akad',h:'Veículo vazio sai da cobertura',
+   p:'A renovação da Akad exclui qualquer evento com o veículo circulando vazio, inclusive o retorno depois da entrega, para frota própria, agregados e autônomos. A apólice atual não tem essa exclusão.',
    why:'A Essor é a única que cobre o retorno vazio da frota própria. AXA e AIG cobrem só o trajeto até a coleta.'},
   {chip:'ruido',ct:'prazo',qt:'25/10',h:'Validade das propostas',
    p:'A proposta da AON vale até 25/10/2026, cinco dias antes do início da vigência. A carta da AXA, de 08/10/2026, vale 30 dias.',
@@ -907,13 +931,13 @@ function render(){
   document.querySelectorAll('#barVig button').forEach(b=>b.setAttribute('aria-pressed',String(+b.dataset.v===V)));
   document.querySelectorAll('#barEst button').forEach(b=>b.setAttribute('aria-pressed',String((b.dataset.e==='on')===EST.show)));
   g('estResumo').textContent=EST.show
-    ? `${Q.filter(q=>q.est).length} cotações estimadas: Akad, AIG e Essor averbável`
+    ? `Valores estimados: apólice atual, Akad renovação, AIG e Essor averbável`
     : 'Estimativas ocultas: o ranking mostra só valores fechados nas propostas';
   
   const com=Q.filter(q=>visivel(q)&&premio(q)!=null).sort((a,b)=>premio(a)-premio(b));
   const sem=Q.filter(q=>visivel(q)&&premio(q)==null);
   const ocultas=Q.filter(q=>!visivel(q));
-  const best=com[0], max=Math.max(...Q.filter(visivel).map(q=>premio(q)||0),...Q.filter(visivel).map(q=>q.est?q.v12*VIAGENS:q.p12));
+  const best=com[0], max=Math.max(...Q.filter(visivel).map(q=>premio(q)||0),...Q.filter(visivel).map(q=>q.est?q.v12*VIAGENS:q.p12),EST.show?premioAtual():0);
   g('kBig').innerHTML=mil(premio(best))+'<span>mil</span>';
   g('kCap').textContent='Menor prêmio por ano · '+nome(best)+' via '+best.cor+(best.est?' · estimado':'');
   g('rkTit').textContent=V===12?'Prêmio por ano · 12 meses':'Prêmio por ano · 24 meses';
@@ -931,6 +955,18 @@ function render(){
     bindTip(r,`<b>${nome(q)} · ${brl(p)} por ano</b>${brl(valorViagem(q))} por viagem<br><span>${como}</span>`);
     rk.appendChild(r);
   });
+  if(EST.show){
+    const pa=premioAtual(), r=document.createElement('div'); r.className='row atual';
+    r.innerHTML=`<div class="nm">Akad · apólice atual ${ESTCHIP}<small>em vigência até ${ATUAL.fim} · referência</small></div>
+      <div class="tr"><s class="est" style="left:0;width:${pa/max*100}%"></s></div>
+      <div class="vl">${mil(pa)} mil</div>`;
+    bindTip(r,`<b>Apólice atual · ${brl(pa)} por ano</b>${brl(ATUAL.v)} por embarque × ${nfi(VIAGENS)} viagens<br><span>Estimado na mesma base das propostas; não entra no ranking</span>`);
+    rk.appendChild(r);
+  } else {
+    const r=document.createElement('div'); r.className='row semop';
+    r.innerHTML=`<div class="nm">Akad · apólice atual<small>R$ 8,00 por embarque</small></div><div class="tr"></div><div class="vl">estimativa oculta</div>`;
+    rk.appendChild(r);
+  }
   sem.forEach(q=>{
     const r=document.createElement('div'); r.className='row semop';
     r.innerHTML=`<div class="nm">${nome(q)}<small>${q.cor}</small></div><div class="tr"></div><div class="vl">só 12 meses</div>`;
@@ -945,7 +981,7 @@ function render(){
   const akad=Q.find(q=>q.id==='akad');
   g('rkNota').innerHTML=V===12
     ? (d>0?`A <strong>${nome(best)}</strong> sai ${brl(d,0)} por ano abaixo da segunda colocada, a ${nome(seg)}.`:`<strong>${nome(best)}</strong> e <strong>${nome(seg)}</strong> empatam no menor prêmio.`)+
-      (visivel(akad)?` A Akad, seguradora atual, custaria cerca de ${brl(premio(akad),0)} por ano (estimado).`:'')
+      (EST.show?` Diante da apólice atual (cerca de ${brl(premioAtual(),0)} por ano), a ${nome(best)} custa ${Math.round((1-premio(best)/premioAtual())*100)}% menos.`:'')
     : `Em 24 meses só AXA, Fairfax, Akad e AIG têm opção. A <strong>${nome(best)}</strong> fica em ${brl(premio(best))} por ano, ${brl(premio(best)*2)} no contrato todo.`;
 
   renderPremio();
@@ -957,7 +993,7 @@ function renderLimites(){
   Q.forEach(q=>{
     if(seen.has(q.seg))return; seen.add(q.seg);
     const r=document.createElement('div'); r.className='row';
-    r.innerHTML=`<div class="nm">${q.seg}<small>${q.cor}</small></div>
+    r.innerHTML=`<div class="nm">${q.seg}<small>${q.cor}${q.seg==='Akad'?' · atual e renovação':''}</small></div>
       <div class="tr"><s style="width:${q.dm/maxT*100}%;background:#98A6BC"></s><s style="width:${q.dc/maxT*100}%;background:#8E5AA8"></s></div>
       <div class="vl">${q.dm/1000} mil · ${q.dc/1000} mil</div>`;
     bindTip(r,`<b>${q.seg}</b>Danos Materiais: ${brl(q.dm)}<br>Danos Corporais: ${brl(q.dc)}`);
@@ -969,6 +1005,14 @@ function renderPremio(){
   const t=g('tbPremio');
   const best=Q.filter(q=>visivel(q)&&premio(q)!=null).sort((a,b)=>premio(a)-premio(b))[0];
   let h=`<thead><tr><th>Seguradora</th><th>Modalidade</th><th class="n">Por viagem</th><th class="n">Prêmio por ano</th><th class="n">${V===12?'Contrato de 12 meses':'Contrato de 24 meses'}</th><th>Prêmio mínimo</th><th>Parcelamento</th><th>Base de viagens</th></tr></thead><tbody>`;
+  {
+    const pa=premioAtual();
+    h+=`<tr class="atualrow"><td class="seg">Akad · apólice atual ${ESTCHIP}<small>apólice ${ATUAL.apol} · ${ATUAL.ini} a ${ATUAL.fim}</small></td>
+      <td>${ATUAL.mod}</td><td class="n">${brl(ATUAL.v)}</td>
+      <td class="n">${EST.show?brl(pa)+`<small>${nfi(VIAGENS)} viagens × ${brl(ATUAL.v)}</small>`:'<small>estimativa oculta</small>'}</td>
+      <td class="n">${EST.show?brl(pa)+'<small>12 meses</small>':'—'}</td>
+      <td>${ATUAL.min}</td><td>${ATUAL.parc}</td><td>${ATUAL.base}</td></tr>`;
+  }
   Q.forEach(q=>{
     const p=premio(q), vv=valorViagem(q);
     let cel, tot;
@@ -984,7 +1028,7 @@ function renderPremio(){
       <td>${q.min}</td><td>${q.parc}</td><td>${q.base}</td></tr>`;
   });
   t.innerHTML=h+'</tbody>';
-  g('prNota').innerHTML=`Prêmios líquidos. Some <strong>7,38%</strong> de Imposto sobre Operações Financeiras a todos. As linhas marcadas <span class="chip est">estimado</span> não têm valor anual na proposta: o valor por ano é o preço por viagem multiplicado pelas 25.344 viagens usadas por Gallagher e Alper. Use "Ocultar" na barra do topo para tirá-las da comparação. Na averbável a cobrança real é mensal, pelas viagens averbadas, respeitando o prêmio mínimo.`;
+  g('prNota').innerHTML=`Prêmios líquidos. Some <strong>7,38%</strong> de Imposto sobre Operações Financeiras a todos. As linhas marcadas <span class="chip est">estimado</span> não têm valor anual na proposta: o valor por ano é o preço por viagem multiplicado pelas 25.344 viagens usadas por Gallagher e Alper. A primeira linha é a apólice em vigência, como referência: R$ 8,00 por embarque, na mesma base de viagens. Use "Ocultar" na barra do topo para tirar os estimados da comparação. Na averbável a cobrança real é mensal, pelas viagens averbadas, respeitando o prêmio mínimo.`;
 }
 
 function renderCob(){
@@ -992,7 +1036,7 @@ function renderCob(){
   let h=`<thead><tr><th>Seguradora</th><th>Danos Materiais</th><th>Danos Corporais</th><th>Danos Morais</th><th>Contenção e salvamento</th><th>Custos de defesa</th><th>Acidentes pessoais</th><th>Veículo vazio</th><th>Franquia</th><th>Cláusula de revisão</th></tr></thead><tbody>`;
   COB.forEach(c=>{
     const [dm,dc]=lim[c.seg];
-    h+=`<tr><td class="seg">${c.seg}<small>${c.cor}</small></td>
+    h+=`<tr class="${c.ref?'atualrow':''}"><td class="seg">${c.seg}${c.sub?' '+c.sub:''}<small>${c.cor}${c.ref?' · em vigência':''}</small></td>
       <td class="n">R$ ${dm}.000,00</td><td class="n">R$ ${dc}.000,00</td>
       <td>${c.morais}</td><td>${c.cont}</td><td>${c.def}</td><td>${c.ap}</td><td>${c.vazio}</td>
       <td><small>${c.fr}</small></td><td><small>${c.rev}</small></td></tr>`;
@@ -1032,6 +1076,7 @@ function renderCen(){
   let h=`<thead><tr><th>Seguradora</th><th class="n">Por viagem</th>${BASES.map(b=>`<th class="n">${b[1]}<br>${new Intl.NumberFormat('pt-BR').format(b[0])} viagens</th>`).join('')}</tr></thead><tbody>`;
   const vals=BASES.map(([n])=>Q.map(q=>Math.max(q.v12*n,MIN[q.id]||0)));
   const lows=vals.map(v=>Math.min(...v));
+  h+=`<tr class="atualrow"><td class="seg">Akad · apólice atual<small>referência</small></td><td class="n">${brl(ATUAL.v)}</td>${BASES.map(([n])=>`<td class="n">${brl(ATUAL.v*n)}</td>`).join('')}</tr>`;
   Q.forEach((q,k)=>{
     h+=`<tr><td class="seg">${nome(q)}<small>${q.cor}</small></td><td class="n">${brl(q.v12)}</td>`;
     BASES.forEach(([n],j)=>{

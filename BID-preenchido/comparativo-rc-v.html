@@ -593,6 +593,7 @@ h3 .tag{white-space:nowrap}
 .unit.semprop{background:#FAFBFD}
 .unit.semprop b.qt{color:var(--steel-l)}
 .foot .rel{max-width:none}
+.chip.nc{color:var(--steel);border-color:var(--steel-l);border-style:dashed;background:#F6F8FB}
 .pnt.dark .row.atual{background:rgba(255,211,77,.07);padding-left:12px;padding-right:12px;margin:0 -12px;border-top:1px dashed rgba(255,211,77,.45);border-bottom:1px dashed rgba(255,211,77,.45)}
 .pnt.dark .row.atual .tr s{background-color:transparent;box-shadow:inset 0 0 0 1.5px #FFD34D}
 .pnt.dark .row.atual .vl{color:#FFD34D}
@@ -716,8 +717,9 @@ h3 .tag{white-space:nowrap}
     <div class="card"><div class="tblbox"><table class="mtab cov" id="tbCob"></table></div>
       <div class="mtx-leg">
         <span><span class="chip ok">coberto</span> incluído na proposta</span>
-        <span><span class="chip furo">não cobre</span> ausente ou excluído</span>
-        <span><span class="chip ruido">não informado</span> a proposta não diz</span>
+        <span><span class="chip furo">excluído</span> exclusão ou negativa escrita na proposta</span>
+        <span><span class="chip nc">não consta</span> a cobertura não aparece na proposta</span>
+        <span><span class="chip ruido">não informado</span> a proposta não traz o detalhe (só quadro resumo ou limite em branco)</span>
       </div>
     </div>
   </div>
@@ -751,7 +753,7 @@ h3 .tag{white-space:nowrap}
           <div><b>R$ 54.490</b><u>por ano em 24 meses</u></div>
           <div><b>R$ 2,15</b><u>menor preço por viagem do BID</u></div>
         </div>
-        <p class="concl-cav"><strong style="color:#fff">Só fechar se a AXA trocar o cancelamento automático por reintegração do limite.</strong> Do jeito que está, um sinistro grande encerra a apólice. Também não cobre Danos Morais nem custos de defesa, o preço pode ser revisto a cada 2 meses se a sinistralidade passar de 50%, e falta confirmar a base de viagens e o prêmio mínimo.</p>
+        <p class="concl-cav"><strong style="color:#fff">Só fechar se a AXA trocar o cancelamento automático por reintegração do limite.</strong> Do jeito que está, um sinistro grande encerra a apólice. A proposta também não inclui Danos Morais nem custos de defesa, o preço pode ser revisto a cada 2 meses se a sinistralidade passar de 50%, e falta confirmar a base de viagens e o prêmio mínimo.</p>
       </div>
       <div class="concl-side">
         <div class="unit">
@@ -849,24 +851,25 @@ const ATUAL={seg:'Akad',sub:'apólice atual',cor:'AON',mod:'Averbável',v:8.00,e
   apol:'027982025010659000254',ini:'20/10/2025',fim:'20/10/2026'};
 const premioAtual=()=>ATUAL.v*VIAGENS;
 const OK=t=>`<span class="chip ok">coberto</span>${t?`<small>${t}</small>`:''}`;
-const NAO=t=>`<span class="chip furo">não cobre</span>${t?`<small>${t}</small>`:''}`;
+const EXC=t=>`<span class="chip furo">excluído</span>${t?`<small>${t}</small>`:''}`;
+const NC=t=>`<span class="chip nc">não consta</span>${t?`<small>${t}</small>`:''}`;
 const NI=t=>`<span class="chip ruido">não informado</span>${t?`<small>${t}</small>`:''}`;
 const COB=[
-  {seg:'AXA',cor:'Gallagher',rein:NAO('Cancela ao atingir o limite'),morais:NAO(),cont:OK('R$ 30.000,00, sem franquia'),def:NAO(),ap:NAO(),
+  {seg:'AXA',cor:'Gallagher',rein:EXC('Cláusula de cancelamento automático ao atingir o limite'),morais:NC(),cont:OK('R$ 30.000,00, sem franquia'),def:NC(),ap:NC(),
    vazio:OK('Da ordem de coleta até a coleta'),fr:'Isenta',rev:'Reanálise a cada 2 meses se a sinistralidade passar de 50%; revisão acima de 12 meses'},
-  {seg:'Fairfax',cor:'Gallagher',morais:NAO(),cont:OK('R$ 30.000,00'),def:NI(),ap:NI(),vazio:NI(),fr:'Isenta',rev:'Acima de 12 meses'},
-  {seg:'Sura',cor:'Gallagher',morais:NAO(),cont:OK('R$ 30.000,00'),def:NI(),ap:NI(),vazio:NI(),fr:'Isenta',rev:'Não se aplica (só 12 meses)'},
-  {seg:'Akad',sub:'apólice atual',cor:'AON',ref:true,morais:OK('R$ 28.000,00'),cont:OK('Dentro do limite de cada cobertura'),def:OK('10% dos pedidos, até R$ 28.000,00'),ap:NAO(),
+  {seg:'Fairfax',cor:'Gallagher',morais:NC(),cont:OK('R$ 30.000,00'),def:NI(),ap:NI(),vazio:NI(),fr:'Isenta',rev:'Acima de 12 meses'},
+  {seg:'Sura',cor:'Gallagher',morais:NC(),cont:OK('R$ 30.000,00'),def:NI(),ap:NI(),vazio:NI(),fr:'Isenta',rev:'Não se aplica (só 12 meses)'},
+  {seg:'Akad',sub:'apólice atual',cor:'AON',ref:true,morais:OK('R$ 28.000,00'),cont:OK('Dentro do limite de cada cobertura'),def:OK('10% dos pedidos, até R$ 28.000,00'),ap:NC(),
    vazio:OK('Veículo "carregado ou não" (cláusula 6.1.1)'),fr:'Isenta, sem Participação Obrigatória do Segurado',rein:OK('Automática, sem custo'),rev:'Não se aplica'},
-  {seg:'Akad',sub:'renovação',cor:'AON',morais:OK('R$ 28.000,00'),cont:NAO('Não possui'),def:NAO('Não possui'),ap:NAO(),
-   vazio:NAO('Excluído, inclusive retorno após a entrega'),fr:'Isenta, sem Participação Obrigatória do Segurado',rev:'Não informada'},
-  {seg:'AIG',sub:'via AON',cor:'AON',morais:OK('R$ 30.000,00'),cont:OK('R$ 15.000,00'),def:OK('R$ 5.000,00 por evento'),ap:NAO(),
+  {seg:'Akad',sub:'renovação',cor:'AON',morais:OK('R$ 28.000,00'),cont:EXC('"Não possui" no quadro da AON'),def:EXC('"Não possui" no quadro, mas o texto cita a cláusula 5.5; confirmar'),ap:NC(),
+   vazio:EXC('Inclusive retorno após a entrega'),fr:'Isenta, sem Participação Obrigatória do Segurado',rev:'Não informada'},
+  {seg:'AIG',sub:'via AON',cor:'AON',morais:OK('R$ 30.000,00'),cont:OK('R$ 15.000,00'),def:OK('R$ 5.000,00 por evento'),ap:NC(),
    vazio:OK('Só na coleta anterior à viagem'),fr:'10% sobre Danos Morais',rev:'24 meses: revisão se a sinistralidade passar de 60% no primeiro ano'},
-  {seg:'AIG',sub:'via F A',cor:'F A Seguros',rein:OK('Automática (cláusula 301)'),morais:NI('Cobertura listada, sem limite informado'),cont:OK('R$ 15.000,00'),def:OK('R$ 5.000,00 por evento'),ap:NAO(),
-   vazio:NAO('Excluído (veículo vazio)'),fr:'Isenta',rev:'Ajuste no fim da vigência se as viagens variarem mais de 10%'},
-  {seg:'Sompo',cor:'F A Seguros',rein:OK('Automática (cláusula 301)'),morais:NAO(),cont:OK('R$ 20.000,00'),def:NI(),ap:NAO(),
-   vazio:NAO('Excluído; coleta coberta com ordem de coleta'),fr:'Não informada',rev:'Não prevista'},
-  {seg:'Essor',cor:'Alper',rein:NI('Adicionais cancelam ao esgotar os R$ 10.000,00'),morais:NAO(),cont:OK('R$ 10.000,00'),def:OK('R$ 10.000,00, sem custo'),ap:OK('Morte e funeral do motorista: R$ 10.000,00, sem custo'),
+  {seg:'AIG',sub:'via F A',cor:'F A Seguros',rein:OK('Automática (cláusula 301)'),morais:NI('Cobertura listada, sem limite informado'),cont:OK('R$ 15.000,00'),def:OK('R$ 5.000,00 por evento'),ap:NC(),
+   vazio:EXC('Veículo que não esteja transportando carga'),fr:'Isenta',rev:'Ajuste no fim da vigência se as viagens variarem mais de 10%'},
+  {seg:'Sompo',cor:'F A Seguros',rein:OK('Automática (cláusula 301)'),morais:NC(),cont:OK('R$ 20.000,00'),def:NC(),ap:NC(),
+   vazio:EXC('Frota própria (item 2.4); coleta coberta com ordem de coleta'),fr:'Não informada',rev:'Não prevista'},
+  {seg:'Essor',cor:'Alper',rein:NI('Adicionais cancelam ao esgotar os R$ 10.000,00'),morais:NC(),cont:OK('R$ 10.000,00'),def:OK('R$ 10.000,00, sem custo'),ap:OK('Morte e funeral do motorista: R$ 10.000,00, sem custo'),
    vazio:OK('Até a coleta; frota própria também no retorno vazio'),fr:'Não se aplica',rev:'Ajustável: acerto final pelas viagens reais'},
 ];
 

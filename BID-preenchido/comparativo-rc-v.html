@@ -664,12 +664,12 @@ h3 .tag{white-space:nowrap}
     <div class="h-id">
       <div class="eyebrow">Tóliman Transportes · apólice atual vence em 20/10/2026</div>
       <h1>Comparativo<em>de seguros RC-V</em></h1>
-      <p class="sub">Responsabilidade Civil do transportador rodoviário de carga. Sete cotações de cinco seguradoras, trazidas por três corretoras, comparadas com a apólice atual da Akad.</p>
+      <p class="sub">Responsabilidade Civil do transportador rodoviário de carga. Nove cotações de seis seguradoras, trazidas por quatro corretoras, comparadas com a apólice atual da Akad.</p>
       <div class="bignum" id="kBig">0</div>
       <div class="bigcap" id="kCap">Menor prêmio por ano</div>
       <div class="split">
-        <div><span>7</span><small>cotações</small></div>
-        <div><span>3</span><small>corretoras com proposta</small></div>
+        <div><span>9</span><small>cotações</small></div>
+        <div><span>4</span><small>corretoras com proposta</small></div>
         <div><span>R$ 8,00</span><small>por embarque na apólice atual</small></div>
       </div>
     </div>
@@ -765,7 +765,7 @@ h3 .tag{white-space:nowrap}
           <div class="nm">Não recomendadas</div>
           <b>Akad e Sura</b>
           <div class="sh">AON e Gallagher</div>
-          <p>A renovação da Akad baixa o preço atual de R$ 8,00 para R$ 5,50 por embarque, mas segue a segunda mais cara, com limites no mínimo legal, e tira coberturas que a apólice atual tem: veículo vazio e custos de defesa. A Sura custa mais de quatro vezes a AXA. A AIG fica no meio: preço intermediário, com Danos Morais, mas limites mínimos e franquia de 10%.</p>
+          <p>A renovação da Akad baixa o preço atual de R$ 8,00 para R$ 5,50 por embarque, mas segue a segunda mais cara, com limites no mínimo legal, e tira coberturas que a apólice atual tem: veículo vazio e custos de defesa. A Sura custa mais de quatro vezes a AXA. A AIG (pela AON ou pela F A) e a Sompo ficam no meio do ranking. A Sompo tem reintegração automática do limite e limites de R$ 200.000,00 e R$ 350.000,00, mas custa R$ 5,25 por viagem, exclui veículo vazio e não tem Danos Morais.</p>
           <div class="res">Akad só se a continuidade com a atual pesar mais que o preço</div>
         </div>
       </div>
@@ -793,7 +793,7 @@ h3 .tag{white-space:nowrap}
           <tr><td class="n">imediato</td><td>Confirmar se a renovação da Akad mantém custos de defesa e por que passa a excluir veículo vazio</td><td>AON</td></tr>
           <tr><td class="n">imediato</td><td>Pedir as propostas completas da Fairfax e da Sura</td><td>Gallagher</td></tr>
           <tr><td class="n">imediato</td><td>Definir qual documento conta como viagem para a cobrança (MDF-e, CT-e, ida e volta)</td><td>Todas</td></tr>
-          <tr><td class="n">17/10/2026</td><td>Proposta da seguradora escolhida assinada e enviada, 72 horas antes de 20/10/2026</td><td>Corretora escolhida</td></tr>
+          <tr><td class="n">antes de 20/10/2026</td><td>Enviar a proposta da seguradora escolhida assinada. Cada uma tem sua regra: a Essor exige a proposta assinada pelo menos 72 horas antes do início da vigência; a Sompo, antes de iniciar o risco; na AXA a cobertura só começa quando ela aceitar o risco; Akad e AIG têm até 25 dias para aceitar</td><td>Corretora escolhida</td></tr>
           <tr><td class="n">20/10/2026</td><td>Fim da apólice atual e início da nova, sem intervalo; cadastro dos responsáveis no sistema de averbação</td><td>Seguradora escolhida</td></tr>
           <tr><td class="n">25/10/2026</td><td>Fim da validade da proposta da AON, caso a Akad ou a AIG continuem na disputa</td><td>AON</td></tr>
         </tbody>
@@ -811,6 +811,7 @@ h3 .tag{white-space:nowrap}
       <span class="rel"><b>Akad</b> · Apólice em vigência 027982025010659000254 · 20/10/2025 a 20/10/2026 · corretora AON</span>
       <span class="rel"><b>AON</b> · Proposta de Renovação RC-V · Akad e AIG · válida até 25/10/2026</span>
       <span class="rel"><b>Alper</b> · RC-V com frota, ajustável e averbável · Essor via Albatroz</span>
+      <span class="rel"><b>F A Seguros</b> · Sompo, cotação 202600909471, vigência 21/10/2026 a 21/10/2027 · AIG, cotação de 15/10/2026 (versão 1)</span>
       <span class="rel"><b>Levantamento de averbação 2025/2026</b> · aba Rel. Vol. · 14.888 MDF-e de 16/09/2025 a 15/09/2026</span>
       <span class="src" style="margin-top:10px">Planilha BID RC-V 2026 / 2027 · aba BID</span></p>
   </div>
@@ -830,12 +831,16 @@ const Q=[
    min:'Não informado',parc:'Até 10 vezes sem juros',base:'25.344 por ano',dm:250000,dc:350000},
   {id:'akad',seg:'Akad',sub:'renovação',cor:'AON',mod:'Averbável',v12:5.50,v24:5.00,p12:5.50*VIAGENS,p24:5.00*VIAGENS,est:true,atual:true,
    min:'R$ 350,00 por mês',parc:'Fatura mensal',base:'Não informada',dm:160000,dc:280000},
-  {id:'aig',seg:'AIG',cor:'AON',mod:'Averbável',v12:4.00,v24:3.50,p12:4.00*VIAGENS,p24:3.50*VIAGENS,est:true,
+  {id:'aig',seg:'AIG',sub:'via AON',cor:'AON',mod:'Averbável',v12:4.00,v24:3.50,p12:4.00*VIAGENS,p24:3.50*VIAGENS,est:true,
    min:'R$ 350,00 por mês',parc:'Fatura mensal',base:'Não informada',dm:160000,dc:280000},
   {id:'essorA',seg:'Essor',sub:'ajustável',cor:'Alper',mod:'Ajustável',v12:3.00,v24:null,p12:76032,p24:null,est:false,
    min:'100% do prêmio inicial',parc:'Até 10 vezes',base:'25.344 por ano',dm:200000,dc:350000},
   {id:'essorV',seg:'Essor',sub:'averbável',cor:'Alper',mod:'Averbável',v12:4.00,v24:null,p12:4.00*VIAGENS,p24:null,est:true,
    min:'R$ 300,00 por mês',parc:'Até 10 vezes',base:'Conforme viagens averbadas',dm:200000,dc:350000},
+  {id:'aigFA',seg:'AIG',sub:'via F A',cor:'F A Seguros',mod:'Ajustável',v12:113142.86/25344,v24:null,p12:113142.86,p24:null,est:false,
+   min:'90% do prêmio inicial no ajuste',parc:'10 vezes',base:'25.344 por ano',dm:160000,dc:280000},
+  {id:'sompo',seg:'Sompo',cor:'F A Seguros',mod:'Averbável',v12:5.25,v24:null,p12:5.25*VIAGENS,p24:null,est:true,
+   min:'R$ 350,00 por mês',parc:'Fatura mensal',base:'Embarques averbados',dm:200000,dc:350000},
 ];
 
 /* apólice em vigência: referência, não concorre no ranking */
@@ -855,13 +860,20 @@ const COB=[
    vazio:OK('Veículo "carregado ou não" (cláusula 6.1.1)'),fr:'Isenta, sem Participação Obrigatória do Segurado',rein:OK('Automática, sem custo'),rev:'Não se aplica'},
   {seg:'Akad',sub:'renovação',cor:'AON',morais:OK('R$ 28.000,00'),cont:NAO('Não possui'),def:NAO('Não possui'),ap:NAO(),
    vazio:NAO('Excluído, inclusive retorno após a entrega'),fr:'Isenta, sem Participação Obrigatória do Segurado',rev:'Não informada'},
-  {seg:'AIG',cor:'AON',morais:OK('R$ 30.000,00'),cont:OK('R$ 15.000,00'),def:OK('R$ 5.000,00 por evento'),ap:NAO(),
+  {seg:'AIG',sub:'via AON',cor:'AON',morais:OK('R$ 30.000,00'),cont:OK('R$ 15.000,00'),def:OK('R$ 5.000,00 por evento'),ap:NAO(),
    vazio:OK('Só na coleta anterior à viagem'),fr:'10% sobre Danos Morais',rev:'24 meses: revisão se a sinistralidade passar de 60% no primeiro ano'},
+  {seg:'AIG',sub:'via F A',cor:'F A Seguros',rein:OK('Automática (cláusula 301)'),morais:NI('Cobertura listada, sem limite informado'),cont:OK('R$ 15.000,00'),def:OK('R$ 5.000,00 por evento'),ap:NAO(),
+   vazio:NAO('Excluído (veículo vazio)'),fr:'Isenta',rev:'Ajuste no fim da vigência se as viagens variarem mais de 10%'},
+  {seg:'Sompo',cor:'F A Seguros',rein:OK('Automática (cláusula 301)'),morais:NAO(),cont:OK('R$ 20.000,00'),def:NI(),ap:NAO(),
+   vazio:NAO('Excluído; coleta coberta com ordem de coleta'),fr:'Não informada',rev:'Não prevista'},
   {seg:'Essor',cor:'Alper',rein:NI('Adicionais cancelam ao esgotar os R$ 10.000,00'),morais:NAO(),cont:OK('R$ 10.000,00'),def:OK('R$ 10.000,00, sem custo'),ap:OK('Morte e funeral do motorista: R$ 10.000,00, sem custo'),
    vazio:OK('Até a coleta; frota própria também no retorno vazio'),fr:'Não se aplica',rev:'Ajustável: acerto final pelas viagens reais'},
 ];
 
 const CX=[
+  {chip:'furo',ct:'prazo',qt:'1 dia',h:'A Sompo começa um dia depois',
+   p:'A proposta da Sompo vai "a partir das 24:00 horas do dia 21/10/2026". A apólice atual da Akad termina às 24 horas de 20/10/2026.',
+   why:'Fica o dia 21/10 inteiro sem cobertura. Se a escolha for a Sompo, pedir à F A que o início seja às 24 horas de 20/10/2026.'},
   {chip:'furo',ct:'prazo',qt:'20/10',h:'A apólice atual vence antes da nova',
    p:'A apólice da Akad vai de 20/10/2025 a 20/10/2026. A proposta de renovação da AON prevê início em 30/10/2026.',
    why:'Do jeito que está, seriam <strong>10 dias sem RC-V</strong>, um seguro obrigatório. A nova apólice, seja qual for a seguradora, precisa começar em 20/10/2026, ou a atual precisa ser prorrogada até o início da nova.'},
@@ -871,6 +883,9 @@ const CX=[
   {chip:'furo',ct:'sem cobertura firme',qt:'25 dias',h:'Propostas da AON são indicativas',
    p:'A AON chama o documento de "cotação indicativa" e avisa que não há cobertura definitiva até a apólice ser emitida. Akad e AIG têm até 25 dias para aceitar ou recusar.',
    why:'Somado ao vencimento da apólice atual em 20/10/2026, o risco de ficar descoberto é real, qualquer que seja a seguradora escolhida. A saída segura é pedir por escrito a prorrogação da apólice atual até a nova estar emitida.'},
+  {chip:'ruido',ct:'confirmar',qt:'AIG',h:'Duas cotações da AIG, com regras diferentes',
+   p:'Pela AON, a AIG cotou averbável: R$ 4,00 por viagem, Danos Morais de R$ 30.000,00 e franquia de 10% sobre eles. Pela F A, cotou ajustável: R$ 4,46 por viagem, R$ 113.142,86 por ano, sem franquia e sem prêmio mínimo mensal.',
+   why:'Na versão da F A, Danos Morais aparece na lista de coberturas mas não tem limite informado, e o número da cotação e as datas de vigência estão em branco ("xx"). No ajuste final, a AIG cobra no mínimo 90% do prêmio inicial e só devolve diferença se a sinistralidade ficar abaixo de 60%.'},
   {chip:'ruido',ct:'confirmar',qt:'2025',h:'Propostas da Alper com data do ano passado',
    p:'Todas as páginas das duas propostas da Essor trazem a marca "Generated: 2025-09-05", embora os arquivos tenham sido gerados em setembro e outubro de 2026.',
    why:'Pode ser só um carimbo do sistema da Albatroz. Antes de comparar, pedir à Alper confirmação por escrito de que R$ 3,00 e R$ 4,00 por viagem valem para 2026/2027.'},
@@ -907,7 +922,7 @@ const CORR=[
    res:'Renovação da Akad, seguradora atual'},
   {nm:'Alper Seguros',ct:'Viviane',prop:true,segs:[['Essor','2 propostas'],['Akad','sem cotação']],
    res:'Única com retorno vazio da frota própria'},
-  {nm:'F A Seguros',ct:'André Hannickel',prop:false,segs:[['Sompo','sem proposta'],['Akad','sem proposta']],res:'Não apresentou proposta'},
+  {nm:'F A Seguros',ct:'André Hannickel',prop:true,segs:[['Sompo','cotou'],['AIG','cotou'],['Akad','sem cotação']],res:'Sompo com vigência a partir de 21/10/2026'},
   {nm:'Valor Global',ct:'Giuseppe',prop:false,segs:[['Akad','sem proposta'],['Grupo HDI','sem proposta']],res:'Não apresentou proposta'},
 ];
 
@@ -945,7 +960,7 @@ function render(){
   document.querySelectorAll('#barVig button').forEach(b=>b.setAttribute('aria-pressed',String(+b.dataset.v===V)));
   document.querySelectorAll('#barEst button').forEach(b=>b.setAttribute('aria-pressed',String((b.dataset.e==='on')===EST.show)));
   g('estResumo').textContent=EST.show
-    ? `Valores estimados: apólice atual, Akad renovação, AIG e Essor averbável`
+    ? `Valores estimados: apólice atual, Akad renovação, AIG via AON, Sompo e Essor averbável`
     : 'Estimativas ocultas: o ranking mostra só valores fechados nas propostas';
   
   const com=Q.filter(q=>visivel(q)&&premio(q)!=null).sort((a,b)=>premio(a)-premio(b));
@@ -1046,7 +1061,7 @@ function renderPremio(){
 }
 
 function renderCob(){
-  const lim={AXA:[250,350],Fairfax:[250,350],Sura:[250,350],Akad:[160,280],AIG:[160,280],Essor:[200,350]};
+  const lim={AXA:[250,350],Fairfax:[250,350],Sura:[250,350],Akad:[160,280],AIG:[160,280],Essor:[200,350],Sompo:[200,350]};
   let h=`<thead><tr><th>Seguradora</th><th>Danos Materiais</th><th>Danos Corporais</th><th>Danos Morais</th><th>Contenção e salvamento</th><th>Custos de defesa</th><th>Acidentes pessoais</th><th>Veículo vazio</th><th>Reintegração do limite</th><th>Franquia</th><th>Cláusula de revisão</th></tr></thead><tbody>`;
   COB.forEach(c=>{
     const [dm,dc]=lim[c.seg];
@@ -1086,7 +1101,7 @@ function renderUnits(){
 
 function renderCen(){
   const BASES=[[25344,'Propostas'],[37131,'Citada pela AXA'],[14888,'MDF-e 2025/2026']];
-  const MIN={essorA:76032};
+  const MIN={essorA:76032,aigFA:101828.57};
   let h=`<thead><tr><th>Seguradora</th><th class="n">Por viagem</th>${BASES.map(b=>`<th class="n">${b[1]}<br>${new Intl.NumberFormat('pt-BR').format(b[0])} viagens</th>`).join('')}</tr></thead><tbody>`;
   const vals=BASES.map(([n])=>Q.map(q=>Math.max(q.v12*n,MIN[q.id]||0)));
   const lows=vals.map(v=>Math.min(...v));

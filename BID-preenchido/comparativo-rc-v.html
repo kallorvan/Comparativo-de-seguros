@@ -759,8 +759,8 @@ h3 .tag{white-space:nowrap}
         <div class="unit">
           <div class="nm">Alternativa</div>
           <b>Essor</b>
-          <div class="sh">via Alper · ajustável · R$ 3,00 por viagem</div>
-          <p>Não tem cláusula de cancelamento por sinistro nas coberturas básicas nem revisão de preço durante a vigência. É a cobertura mais completa para a frota própria: cobre o retorno vazio, custos de defesa de R$ 10.000,00 e acidentes pessoais do motorista sem custo. Custa 20% a mais por viagem que a AXA, e o prêmio mínimo é de 100% do valor inicial, R$ 76.032,00, mesmo que haja menos viagens.</p>
+          <div class="sh">via Alper · ajustável ou averbável · R$ 3,00 por viagem</div>
+          <p>Não tem cláusula de cancelamento por sinistro nas coberturas básicas nem revisão de preço durante a vigência. É a cobertura mais completa para a frota própria: cobre o retorno vazio, custos de defesa de R$ 10.000,00 e acidentes pessoais do motorista sem custo. Custa 20% a mais por viagem que a AXA. Na versão 2, a averbável caiu para o mesmo R$ 3,00 da ajustável: cobra pelas viagens averbadas, com mínimo de R$ 300,00 por mês, sem o prêmio mínimo de 100% do valor inicial (R$ 76.032,00) da ajustável.</p>
           <div class="res">Vale se o retorno vazio da frota própria for prioridade, desde que a Alper confirme os valores para 2026/2027</div>
         </div>
         <div class="unit">
@@ -812,7 +812,7 @@ h3 .tag{white-space:nowrap}
       <span class="rel"><b>Gallagher</b> · Proposta de Seguro RC-V, versão 2 de 16/10/2026 · AXA, Fairfax e Sura · carta da AXA de 08/10/2026</span>
       <span class="rel"><b>Akad</b> · Apólice em vigência 027982025010659000254 · 20/10/2025 a 20/10/2026 · corretora AON</span>
       <span class="rel"><b>AON</b> · Proposta de Renovação RC-V · Akad e AIG · válida até 25/10/2026</span>
-      <span class="rel"><b>Alper</b> · RC-V com frota, ajustável e averbável · Essor via Albatroz</span>
+      <span class="rel"><b>Alper</b> · RC-V com frota, ajustável e averbável (versão 2 de 15/10/2026, R$ 3,00 por embarque) · Essor via Albatroz</span>
       <span class="rel"><b>F A Seguros</b> · Sompo, cotação 202600909471, vigência 21/10/2026 a 21/10/2027 · AIG, cotação de 15/10/2026 (versão 1)</span>
       <span class="rel"><b>Levantamento de averbação 2025/2026</b> · aba Rel. Vol. · 14.888 MDF-e de 16/09/2025 a 15/09/2026</span>
       <span class="src" style="margin-top:10px">Planilha BID RC-V 2026 / 2027 · aba BID</span></p>
@@ -837,7 +837,7 @@ const Q=[
    min:'R$ 350,00 por mês',parc:'Fatura mensal',base:'Não informada',dm:160000,dc:280000},
   {id:'essorA',seg:'Essor',sub:'ajustável',cor:'Alper',mod:'Ajustável',v12:3.00,v24:null,p12:76032,p24:null,est:false,
    min:'100% do prêmio inicial',parc:'Até 10 vezes',base:'25.344 por ano',dm:200000,dc:350000},
-  {id:'essorV',seg:'Essor',sub:'averbável',cor:'Alper',mod:'Averbável',v12:4.00,v24:null,p12:4.00*VIAGENS,p24:null,est:true,
+  {id:'essorV',seg:'Essor',sub:'averbável',cor:'Alper',mod:'Averbável',v12:3.00,v24:null,p12:3.00*VIAGENS,p24:null,est:true,
    min:'R$ 300,00 por mês',parc:'Até 10 vezes',base:'Conforme viagens averbadas',dm:200000,dc:350000},
   {id:'aigFA',seg:'AIG',sub:'via F A',cor:'F A Seguros',mod:'Ajustável',v12:113142.86/25344,v24:null,p12:113142.86,p24:null,est:false,
    min:'90% do prêmio inicial no ajuste',parc:'10 vezes',base:'25.344 por ano',dm:160000,dc:280000},
@@ -891,7 +891,7 @@ const CX=[
    why:'Na versão da F A, Danos Morais aparece na lista de coberturas mas não tem limite informado, e o número da cotação e as datas de vigência estão em branco ("xx"). No ajuste final, a AIG cobra no mínimo 90% do prêmio inicial e só devolve diferença se a sinistralidade ficar abaixo de 60%.'},
   {chip:'ruido',ct:'confirmar',qt:'2025',h:'Propostas da Alper com data do ano passado',
    p:'Todas as páginas das duas propostas da Essor trazem a marca "Generated: 2025-09-05", embora os arquivos tenham sido gerados em setembro e outubro de 2026.',
-   why:'Pode ser só um carimbo do sistema da Albatroz. Antes de comparar, pedir à Alper confirmação por escrito de que R$ 3,00 e R$ 4,00 por viagem valem para 2026/2027.'},
+   why:'Pode ser só um carimbo do sistema da Albatroz. Antes de comparar, pedir à Alper confirmação por escrito de que R$ 3,00 por viagem, nas duas modalidades, vale para 2026/2027. A versão 2 da averbável, enviada em 15/10/2026, ainda traz o mesmo carimbo.'},
   {chip:'ruido',ct:'preço variável',qt:'50%',h:'O preço da AXA pode ser revisto a cada 2 meses',
    p:'Se a sinistralidade passar de 50% do prêmio, as condições da AXA "serão revistas" e passam a valer no período seguinte.',
    why:'O R$ 2,50 por viagem não fica travado o ano todo. Na AIG o gatilho é 60%, e só no contrato de 24 meses. As propostas da Akad e da Essor não trazem essa cláusula.'},

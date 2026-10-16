@@ -753,7 +753,7 @@ h3 .tag{white-space:nowrap}
           <div><b>R$ 48.154</b><u>por ano em 24 meses</u></div>
           <div><b>R$ 1,90</b><u>menor preço por viagem do BID (24 meses)</u></div>
         </div>
-        <p class="concl-cav">Na versão 2 da proposta, a AXA retirou o cancelamento automático: os limites podem ser reintegrados até 2 vezes na vigência, e entraram R$ 30.000,00 de custos de defesa. Continua sem Danos Morais, o preço pode ser revisto a cada 2 meses se a sinistralidade passar de 50%, e falta confirmar a base de viagens e o prêmio mínimo.</p>
+        <p class="concl-cav">Desde a versão 2 da proposta, mantido na versão 3, a AXA não tem cancelamento automático: os limites podem ser reintegrados até 2 vezes na vigência, e entraram R$ 30.000,00 de custos de defesa. Continua sem Danos Morais, o preço pode ser revisto a cada 2 meses se a sinistralidade passar de 50%, e falta confirmar a base de viagens e o prêmio mínimo.</p>
       </div>
       <div class="concl-side">
         <div class="unit">
@@ -789,7 +789,7 @@ h3 .tag{white-space:nowrap}
         <thead><tr><th>Até</th><th>O quê</th><th>Com quem</th></tr></thead>
         <tbody>
           <tr class="urg"><td class="n">imediato</td><td>Garantir que não haja intervalo: a apólice atual vence em 20/10/2026, a proposta da AON começa em 30/10/2026 e as seguradoras têm até 25 dias para aceitar. Pedir por escrito a prorrogação da atual até a nova estar emitida</td><td>AON e corretora escolhida</td></tr>
-          <tr><td class="n">imediato</td><td>Pedir a cotação numerada da AXA com as condições da versão 2 (reintegração até 2 vezes e custos de defesa de R$ 30.000,00)</td><td>Gallagher</td></tr>
+          <tr><td class="n">imediato</td><td>Pedir a cotação numerada da AXA: a carta da versão 3 ainda está sem número de cotação e sem datas de vigência. Ela deve trazer R$ 1,90 (24 meses) ou R$ 2,50 (12 meses), reintegração até 2 vezes e custos de defesa de R$ 30.000,00</td><td>Gallagher</td></tr>
           <tr><td class="n">imediato</td><td>Confirmar por escrito que as propostas da Essor valem para 2026/2027</td><td>Alper</td></tr>
           <tr><td class="n">imediato</td><td>Confirmar a base de viagens da AXA (25.344 ou 37.131) e se existe prêmio mínimo</td><td>Gallagher</td></tr>
           <tr><td class="n">imediato</td><td>Confirmar se a renovação da Akad mantém custos de defesa e por que passa a excluir veículo vazio</td><td>AON</td></tr>
@@ -855,7 +855,7 @@ const EXC=t=>`<span class="chip furo">excluído</span>${t?`<small>${t}</small>`:
 const NC=t=>`<span class="chip nc">não consta</span>${t?`<small>${t}</small>`:''}`;
 const NI=t=>`<span class="chip ruido">não informado</span>${t?`<small>${t}</small>`:''}`;
 const COB=[
-  {seg:'AXA',cor:'Gallagher',rein:OK('Até 2 vezes na vigência, sem cancelamento automático (versão 2)'),morais:NC(),cont:OK('R$ 30.000,00, sem franquia'),def:OK('R$ 30.000,00 (versão 2)'),ap:NC(),
+  {seg:'AXA',cor:'Gallagher',rein:OK('Até 2 vezes na vigência, sem cancelamento automático (versões 2 e 3)'),morais:NC(),cont:OK('R$ 30.000,00, sem franquia'),def:OK('R$ 30.000,00 (versões 2 e 3)'),ap:NC(),
    vazio:OK('Da ordem de coleta até a coleta'),fr:'Isenta',rev:'Reanálise a cada 2 meses se a sinistralidade passar de 50%; revisão acima de 12 meses'},
   {seg:'Fairfax',cor:'Gallagher',rein:OK('Até 2 vezes (quadro resumo)'),morais:NC(),cont:OK('R$ 30.000,00'),def:OK('R$ 30.000,00 (quadro resumo)'),ap:NI(),vazio:NI(),fr:'Isenta',rev:'Acima de 12 meses'},
   {seg:'Sura',sub:'versão 2',cor:'Gallagher · fora da versão 3',rein:OK('Até 2 vezes (quadro resumo da versão 2)'),morais:NC(),cont:OK('R$ 30.000,00'),def:OK('R$ 30.000,00 (quadro resumo da versão 2)'),ap:NI(),vazio:NI(),fr:'Isenta',rev:'Não se aplica (só 12 meses)'},
@@ -881,7 +881,7 @@ const CX=[
    p:'A apólice da Akad vai de 20/10/2025 a 20/10/2026. A proposta de renovação da AON prevê início em 30/10/2026.',
    why:'Do jeito que está, seriam <strong>10 dias sem RC-V</strong>, um seguro obrigatório. A nova apólice, seja qual for a seguradora, precisa começar em 20/10/2026, ou a atual precisa ser prorrogada até o início da nova.'},
   {chip:'ok',ct:'resolvido',qt:'AXA',h:'A AXA tirou o cancelamento automático',
-   p:'Na primeira proposta, o seguro seria "automaticamente cancelado" ao atingir o limite de Danos Materiais ou Danos Corporais. A versão 2 da Gallagher, de 16/10/2026, retirou essa cláusula.',
+   p:'Na primeira proposta, o seguro seria "automaticamente cancelado" ao atingir o limite de Danos Materiais ou Danos Corporais. A versão 2 da Gallagher retirou essa cláusula, e a versão 3, de 16/10/2026, mantém a mudança.',
    why:'Agora os limites podem ser reintegrados <strong>até 2 vezes</strong> na vigência, sem cancelar a apólice, e entrou uma cobertura de <strong>custos de defesa de R$ 30.000,00</strong>. A apólice atual da Akad reintegra sem limite de vezes. Os preços não mudaram.'},
   {chip:'furo',ct:'sem cobertura firme',qt:'25 dias',h:'Propostas da AON são indicativas',
    p:'A AON chama o documento de "cotação indicativa" e avisa que não há cobertura definitiva até a apólice ser emitida. Akad e AIG têm até 25 dias para aceitar ou recusar.',
